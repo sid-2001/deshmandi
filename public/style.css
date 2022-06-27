@@ -1,0 +1,274 @@
+
+*{
+    
+    font-family: sans-serif;
+    margin: 0px;
+        padding:0px
+}
+
+.navimg{
+    
+    
+ height:  50px;
+    width: 17%;
+    padding: 0px;
+}
+.navnavimg{
+    
+    
+    
+    height: 100%;
+    width: 100%;
+}
+.menut{
+    
+    background-image: linear-gradient(to right,#6db9ef,#7ce08a);
+    display: 
+    
+}
+.pol{
+    
+    
+    height: 200px;
+    width: 500x;
+    background-color: aqua;
+}
+.navlinki{
+    
+    font-size: 16px;
+        color:#fff !important;
+    margin:2px;
+}
+.unordlis{
+    text-align: right
+    
+    
+}
+.menu-bar .togg{
+    padding-right:0px;
+    outline: none
+        
+        
+}
+.banner{
+    
+    height:80vh;
+    background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)),url(https://drive.google.com/uc?id=1_HsGLW2-Bj6U6dsA1TXWrXA9_i90sjV8);
+    background-position: center;
+    color: #fff;
+}
+.banner h1{
+    
+    padding-top: 170px;
+    font-size:50px;
+    letter-spacing: 6px;
+    font-weight: 600;
+    text-shadow:0 0 30px rgba(0,0,0,0.5)
+    
+}
+.search-job{
+    
+    height: 20vh;
+    padding: 30px ,0px;
+        margin:-50px 6% 50px;
+    background-image: linear-gradient(to right,#6db9ef,#7ce08a);
+}
+.search-job .form-control{
+    
+    max-width: 250px;
+    display: inline-flex;
+    margin:10px 5px;
+    border-radius: 0;
+    box-shadow: none !important;
+    border:none !important;
+    
+  
+    
+    
+}
+.search-job .applybtn{
+    
+    border-radius: 0;
+    box-shadow: none;
+    border:none;
+        display:inline-flex;
+    margin: 5px !important;
+    padding:5px 20px !important;
+    
+}
+/*-------------Top-recriter----------*/
+#recut{
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+}
+#recut h3{
+    
+    text-align: center;
+    padding-bottom: 40px;
+/*    background-color: aqua;*/
+}
+/*recent-update*/
+#jobs{
+    background:#f8f8fa;
+    padding: 50px 0;
+    
+    
+}
+.company-detail{
+    box-shadow: 0,2px,70px 0:rgba(110,130,200, .18);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    
+    
+}
+.job-update{
+    
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+        
+}
+.job-update .fa{
+    
+    margin-top:5px;
+    margin-right: 10px;
+    color: #77d1b1;
+}
+.job-update small{
+    background-image: linear-gradient(to right,#6db9ef,#7ce08a);
+    padding: 1px 5px;
+    margin:  0 5px;    
+    border-radius: 15%;
+    
+}
+.job-update p{
+    
+    margin-bottom: 0px!important;
+}
+
+.job-update a{
+    
+    
+}
+.apply-btn{
+    height: 40px;
+    background-image:linear-gradient(to right,#6db9ef,#7ce08a);
+        padding:7px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px
+}
+.apply-btn .btn-primary{
+    
+    padding: 0 30px;
+    float: right;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    border: 1px solid #fff;
+}
+/*SIT STAT*/
+
+
+
+#site-stats{
+    padding: 50px 0;
+}
+#site-stats  h3{
+    
+    margin-bottom: 30px;
+}
+.sta-box{
+    
+    padding:30px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 2px 40px 0 rgba(110,130,208,0.8)
+        
+}
+.sta-box .fa{
+    
+    font-size: 30px;
+    margin-right: 10px;
+    margin-bottom: 1px;
+}
+/*appp banener*/
+#app-banner{
+    
+     background-image:linear-gradient(to right,#6db9ef,#7ce08a);
+    padding: 50px 0;
+}
+#app-banner h1{
+    margin-top: 20px;
+color: #fff;
+    
+}
+
+#app-banner img{
+    
+    
+    width: 150px;
+    margin: 50 ,0;
+    
+}
+.botr{
+    
+ background-color: rgba(0,0,0,0.2);
+    border-radius: 5%;
+    display: inline-block;
+    padding: 7%;
+    
+}
+.foterr{
+ background-color: rgba(0,0,0,0.5) ;
+    background-image:linear-gradient(to right,#6db9ef,#7ce08a);
+    
+}
+.glow {
+font-size: 150%;
+  color: #fff;
+    font-weight: 600;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6db9ef, 0 0 40px #6db9ef, 0 0 50px #6db9ef, 0 0 60px #6db9ef, 0 0 70px #6db9ef;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #7ce08a, 0 0 40px #7ce08a, 0 0 50px #7ce08a, 0 0 60px #7ce08a, 0 0 70px #7ce08a, 0 0 80px #7ce08a;
+  }
+}
+
+.btn-social{
+    border: 2px solid #fff;
+box-shadow: box-shadow: 5px 10px #888888;; 
+    
+    
+    
+}
+@media only screen and (max-width: 700px) {
+.botr {
+    background-color: rgba(0,0,0,0.2);
+    padding: 2%;
+  }
+    .navimg{
+    
+    
+ height:  50px;
+    width: 34%;
+    padding: 0px;
+}
+    
+    
+    .btn-social{
+ border: 0px solid #fff;
+box-shadow: box-shadow: 5px 10px #888888;; 
+    
+    
+    
+}
+}

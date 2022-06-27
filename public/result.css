@@ -1,0 +1,144 @@
+.tpnav{
+    
+   
+background-image:linear-gradient(to right,#6db9ef,#7ce08a);
+    width: 100%;
+    
+
+    
+}
+.typewrite{
+    
+    font-family: sans-serif;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    font-size: 150%;
+   margin-left: 2%;
+    color:snow;
+}
+
+.row{
+    
+    margin: 0px;
+   
+    width: 100%;
+}
+.search-jobs-form
+{
+    
+    
+    width: 100%;
+    margin: 0px;
+}
+
+*recent-update*/
+#jobs{
+    background:#f8f8fa;
+    padding: 50px 0;
+    
+    
+}
+.company-detail{
+    box-shadow: 0,2px,70px 0:rgba(110,130,200, .30);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    
+    
+}
+.job-update{
+    
+    background-color: rgba(0,0,0,0.3);
+    padding: 10px 20px;
+    border-radius: 5px;
+        margin-top: 10px; 
+}
+.job-update .fa{
+    
+    margin-top:5px;
+    margin-right: 10px;
+    color: #77d1b1;
+}
+.job-update small{
+    background-image: linear-gradient(to right,#6db9ef,#7ce08a);
+    padding: 1px 5px;
+    margin:  0 5px;    
+    border-radius: 15%;
+    
+}
+.job-update p{
+    
+    margin-bottom: 0px!important;
+}
+
+.job-update a{
+    
+    
+}
+.apply-btn{
+    height: 40px;
+    background-image:linear-gradient(to right,#6db9ef,#7ce08a);
+        padding:7px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px
+}
+.apply-btn .btn-primary{
+    
+    padding: 0 30px;
+    float: right;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    border: 1px solid #fff;
+}
+.foterr{
+ background-color: rgba(0,0,0,0.5) ;
+    background-image:linear-gradient(to right,#6db9ef,#7ce08a);
+    
+}
+.glow {
+font-size: 150%;
+  color: #fff;
+    font-weight: 600;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6db9ef, 0 0 40px #6db9ef, 0 0 50px #6db9ef, 0 0 60px #6db9ef, 0 0 70px #6db9ef;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #7ce08a, 0 0 40px #7ce08a, 0 0 50px #7ce08a, 0 0 60px #7ce08a, 0 0 70px #7ce08a, 0 0 80px #7ce08a;
+  }
+}
+
+.btn-social{
+    border: 2px solid #fff;
+box-shadow: box-shadow: 5px 10px #888888;; 
+    
+    
+    
+}
+@media only screen and (max-width: 700px) {
+.botr {
+    background-color: rgba(0,0,0,0.2);
+    padding: 2%;
+  }
+    .navimg{
+    
+    
+ height:  50px;
+    width: 34%;
+    padding: 0px;
+}
+    
+    
+    .btn-social{
+ border: 0px solid #fff;
+box-shadow: box-shadow: 5px 10px #888888;; 
+    
+    
+    
+}
+}

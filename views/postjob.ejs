@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Full-width input fields */
+input[type=text], input[type=number] ,input[type=email]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=number]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+   /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-image:linear-gradient(to right,#6db9ef,#7ce08a);
+  padding-top: 50px;
+}
+    
+    
+    
+    
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 5% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; 
+  ;/* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+    textarea{
+    background-color:#f1f1f1;
+width:100%;
+        height:100px;
+        
+        
+    }
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+    #salry{
+        
+        
+        width:100%;
+       background-color:#f1f1f1;
+        height:40px;
+        border-radius:10%;   ;
+        
+    }
+    #kalry{
+          
+        width:100%;
+       background-color:#f1f1f1;
+        height:40px;
+        border-radius:10%; 
+        
+        
+    }
+    #final{
+        
+        display:none:
+        
+        
+    }
+    #rnge{
+        
+        width:100%;
+    }
+    .text-center{
+        text-align:center;
+        
+        
+        
+    }
+    
+    #model{
+        display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #474e5d;
+  padding-top: 50px;
+        
+        
+    }
+    
+    .popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+    
+    @media only screen and (max-width: 500px) {
+ 
+        .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+    .modal-content {
+  background-color:snow;
+  margin: 0px; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+        padding:0px;
+  width: 100%; /* Could be more or less, depending on screen size */
+}
+        .modal {
+   /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-image:linear-gradient(to right,#6db9ef,#7ce08a);
+  padding:2
+}
+        
+    
+    
+}
+    
+</style>
+    
+    
+   
+        
+
+<body>
+
+<div id="id01" class="modal">
+ 
+  <form class="modal-content" onsubmit="log()"  method="post"  action="/newpost">
+    <div class="container">
+      <h1 class="text-center">अपनी जानकारी भरें</h1>
+      <p class="text-center">कृपया अपनी सारी जानकारी सावधानी से भरें</p>
+      <hr>
+     
+<!--company name-->
+      <label for="psw"><b>पूरा नाम </b></label>
+      <input type="text" placeholder="पूरा नाम" name="name" required >
+<!--min experince-->
+      <label for="Minimum expreince"><b>फसल की उम्र / दिन</b></label>
+      <input type="number" placeholder="फसल की उम् " name="cropage"  required>
+<!--      -->
+
+        
+        
+   
+        <label for="max-expernce">     </label>  
+        <b>मूल्य</b>
+    
+      <input type="number" placeholder="मूल्य " name="price"  required>
+<!--        option for city and category    -->
+       
+     <%- include('cityname.ejs') %>
+        <label for="category"><b>फसल चुने</b></label>
+        
+<select  name="category" id="city" required>
+<option disable selectedd>फसल चुने</option>
+ <option>चावल </option>
+   <option> गेहूँ</option>
+   <option>जौ</option>
+   <option> मक्का अथवा कार्न </option>
+   <option>ज्वार</option>
+   <option>बाजरा</option>
+   <option>दलहन </option>
+   <option>अरहर</option>
+   <option>मूँग</option>
+   <option> उरद</option>
+   <option> मसूर</option>
+   <option>राजमा </option>
+   <option>तिलहन </option>
+   <option> मूँगफली </option>
+   <option>सरसों तथा तोड़िया</option>
+   <option> चुकंदर</option>
+   <option> कपास </option>
+        </select>
+        
+<!--amuunt-->
+ <label for="Minimum expreince"><b>
+वजन / क्विंटल</b></label>
+      <input type="number" placeholder=" Weight/100 kg" name="weight"  required>
+
+        
+        
+        <!--        labelforthenumber-->
+        
+        <label ><b>मोबाइल नंबर</b></label>
+        <input type="text" placeholder="मोबाइल नंबर" name="mobile">
+        
+      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>. <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px" required></p>
+        
+
+<!--button-->
+      <div class="clearfix">
+        <button type="button" class="cancelbtn" onclick="chanpg()">Back</button>
+        <button type="submit" class="signupbtn" onclick="chngit()">Post</button>
+       
+      </div>
+    </div>
+  </form>
+</div>
+   
+
+    
+  <script>
+        function updateTextInput(val) {
+          document.getElementById('salry').innerHTML=val+"00000"; 
+        } function updateTextInput2(val) {
+          document.getElementById('kalry').innerHTML=val+"00000"; 
+        }
+  
+      function chngit() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+      
+      function chanpg(){
+          
+          location.replace("/");
+          
+      }
+      function nospaces(t){
+
+if(t.value.match(/\s/g)){
+
+alert('Sorry, you are not allowed to enter any spaces');
+
+t.value=t.value.replace(/\s/g,'');
+
+}
+
+}
+</script>
+
+   
+    
+    
+    
+
+</body>
+</html>

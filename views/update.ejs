@@ -1,0 +1,51 @@
+<link rel="stylesheet" src="style.css">
+<section id="jobs">
+
+<div class="container">
+    
+    <h5>Recent Update</h5>
+    <%raye.forEach((item)=>{%>
+        
+
+         <div class="company-detail">
+       
+    <div class="job-update">
+        <h4><b><%=item.designation%></b></h4>
+        <p><%=item.company_name%></p>
+        <i class="fa fa-briefcase"></i><span>0-<%=item.min_exp%>  yrs</span><br>
+        <i class="fa fa-inr"></i><span><%=item.min_slry%>-<%=item.max_slry%> Lacs p. a.</span>
+        <br>
+        <i class="fa fa-map-marker"></i><span><%=item.city%></span>
+        <p><B>Skills</B>
+            
+            <i class="fa fa-angle-double-right">
+            </i>
+            
+            <%item.skill.forEach((skll)=>{%>
+                <small><%=skll%></small>
+           <% })%>
+        
+            
+        </p>
+        <p><b>Description</b><i class="fa fa-angle-double-right"></i>
+        <%=item.description%>
+        
+        
+        </p>
+        </div>
+        <div class="apply-btn">
+        <button type="button" class="btn btn-primary">Apply</button>
+        </div>
+    </div>
+        
+    <%})%>
+   
+    
+    
+    
+     
+    </div>
+
+
+
+</section>
