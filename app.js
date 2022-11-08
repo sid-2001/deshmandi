@@ -5,6 +5,8 @@ const ejs=require("ejs")
 const app=new express();
 const upload=require("express-fileupload");
 const fast2sms = require('fast-two-sms');
+const cors = require("cors")
+const nodemailer = require("nodemailer")
 
 
 
@@ -63,10 +65,55 @@ const memberschema=new mong.Schema({
     
 })
 
+const productschema=new mong.Schema({
+
+
+Name:String,
+Category:String,
+Status:String,
+icon:String
+
+
+});
+
+const bannerschema=new mong.Schema({
+
+
+
+    Image:String,
+    Status:String
+});
+
+const offerschema=new mong.Schema({
+
+
+Image:String,
+Content:String,
+Offer:String
+
+
+});
+const Trendingschema=new mong.Schema({
+
+Image:String,
+Content:String
+
+
+})
+
+
+const TrendingOffer=mong.model("TrendingOffer",Trendingschema);
+
+const offer=mong.model("offer",offerschema);
+
+const product=mong.model("products",productschema);
+
+const banner=mong.model("banners",bannerschema);
+
 const user=mong.model("user",memberschema);
 
 const jobpost=mong.model("post",jobschema);
-//jai shree ram
+
 
 
 let port = process.env.PORT;
@@ -79,12 +126,12 @@ app.listen(port);
 
 app.get("/",function(req,res){
    
-console.log("jai shreer ram"); 
+
 
   
 jobpost.find(function(err,result){
     if(!err){
-        console.log("jai shree ram we have got the request")
+        console.log(" we have got the request to the roor Directory");
         
 
    res.render("home_page_wo_log_in.ejs",{ray:result});
@@ -95,7 +142,7 @@ jobpost.find(function(err,result){
 app.get("/about",function(req,res){
     
   
-    res.render("balaji.ejs")
+    res.render("about.ejs")
     
     
 })
@@ -103,11 +150,72 @@ app.get("/signin",function(req,res){
     
     res.render("login.ejs" ,{ray:"true"})
 })
+app.get("/forpas",function(req,res){
 
+res.render("forgot.ejs");
+console.log(req.body);
+
+
+
+});
+
+
+app.post('/forpas',function(req,res){
+console.log("a request has been therein the system");
+    console.log(req.body);
+	const transport = nodemailer.createTransport({
+		service:"gmail",
+		host: "smtp.gmail.com",
+		port: 465,
+		auth: {
+			user: "automater420@gmail.com",
+			pass: "hrszqqhjzejspvjx"
+		}
+	})
+	console.log(transport)
+
+	transport.sendMail({
+		from: "dm29phase1@gmail.com",
+		to: req.body.email,
+		subject: "Meeting Nofication",
+		html: `<div className="email" style="
+        border: 1px solid black;
+        padding: 20px;
+        font-family: sans-serif;
+        line-height: 2;
+        font-size: 20px; 
+        ">
+        <h2>Here is your metting link</h2>
+		<h3>Hi your ${req.body.Company} Meeting has been schedule for ${req.body.Schedule} Please Join by Clicking on the Below Link</h3>
+		<a href=${req.body.Link}>${req.body.Link}</a>
+        <br>
+	    <span>Siddhant Kaushik<br>AllSafe<span>
+         </div>
+    `
+	}).then((result)=>{
+     console.log(result);
+		res.render("otp.ejs");
+
+
+
+});
+});
+
+app.post('/update',function(req,res){
+console.log(req.body);
+user.find({"email":req.body.email},function(err,Result){
+
+
+    console.log(Result);
+})
+    user.updateOne({"email":req.body.email},{"email":req.body.email,"passward":req.body.pass},function(reqest,response){
+  res.send("ok password chahged succesfully");
+    })
+    
+})
 app.post("/signin",function(req,res){
     
     const Email=req.body.email;
-
     user.find({email:Email,passward:req.body.psw},function(err,nesult){
         
         
@@ -121,7 +229,8 @@ app.post("/signin",function(req,res){
 
                
                
-    res.render("newshome.ejs",{ray:result,gay:nesult[0].name,id:nesult[0]._id})
+    // res.render("newshome.ejs",{ray:result,gay:nesult[0].name,id:nesult[0]._id})
+    res.send("you have succesfull logind in to Your Account");
                
     
 })
@@ -161,38 +270,40 @@ app.get("/signUp",function(req,res){
 
 
 app.post("/signUp",function(req,res){
+    console.log(req);
+    res.send("hello");
 //    if(req.files){
     
 
-    user.find({email:req.body.email},function(err,result){
-        if(result.length==0){
+    // user.find({email:req.body.email},function(err,result){
+    //     if(result.length==0){
           
     
  
-     var newuser=new user({
+    //  var newuser=new user({
             
-            name:req.body.name,
-            adress:req.body.lname,
-            email:req.body.email,
-            passward:req.body.pswfirst,
-         mobile:req.body.mobile
+    //         name:req.body.name,
+    //         adress:req.body.lname,
+    //         email:req.body.email,
+    //         // passward:req.body.pswfirst,
+    //      mobile:req.body.mobile
           
             
             
-        })
-        newuser.save();
-             res.render("login.ejs",{ray:"true"})
+    //     })
+    //     newuser.save();
+    //          res.render("login.ejs",{ray:"true"})
             
-        }
-        else(
+    //     }
+    //     else(
         
-        res.render("signup.ejs",{cond:"false"})
+    //     res.render("signup.ejs",{cond:"false"})
         
-        )
+    //     )
         
         
         
-    })
+    // })
     
    
        
@@ -267,18 +378,18 @@ const random = Math.floor(Math.random() * months.length);
 });
 
 app.post("/otpsend",function(req,res){
-   
+   console.log("we are the greatest in the word");
     var months=[1120,2500,4500,7800]
     if(months.indexOf(parseInt(req.body.otp)) !== -1){
       
-   jobpost.find(function(err,result){
+   jobpost.find({"email":'varsha@gmail.com'},function(err,result){
     
    
-    res.render("home_page_wo_log_in.ejs",{ray:result})
+    res.render("update.ejs",{ray:result})
       
 }) 
     } else{
-       
+
      res.render("otp.ejs")
     }
     
@@ -363,7 +474,7 @@ app.post("/recent_update_with_signin",function(req,res){
                 
                 jobpost.findById(req.body.detailoffarmer,function(err,resul){
                 
-                    var options = {authorization :"SxVtdcwVgEYXW04WSzsihKVrkTJFmzqyneE2AonZ6uxtPSdcYxAyLfTG7Fhy"  ,
+                    var options = {authorization :"ksSQFqgTcu3MJpCXKEf07HvD1GZIhb9YOznyBVwxP54mel6Uaj0XKC4u6FWLHgPDmwoR7VEyBjs9lTGb"  ,
                    message : "Hello! " +resul.name+ " we hope you are doing well ."+ nesult.name +" has shown Intrest in your crop Listing @deshmandi.online kindly contact them @ "+ nesult.mobile+ " "
                    ,  numbers :[resul.mobile]}
     
@@ -385,7 +496,7 @@ app.post("/recent_update_with_signin",function(req,res){
     })
     
     
-})
+});
 
 app.post("/wanobuy",function(req,res){
 
@@ -427,10 +538,281 @@ jobpost.findById(req.body.id_ofcrop,function(error,crop_res){
 
 
 
-// Step 1
+app.post("/updati",(req,res)=>{
 
-// Step 2
- 
-// Step 3
 
+console.log(req.body);
+
+user.updateOne({"email":req.body.email},{$set:{"email":req.body.email,"passward":req.body.passward,"name":req.body.name,"mobile":req.body.mobile}},function(result,response){
+  console.log(result);
+  console.log(response);
+    res.send("data updated succesfully");
+      })
+
+})
+
+
+
+app.post("/product/create",(req,res)=>{
+
+
+    const newjobpost=new product(
+        {
+            
+            Name:req.body.Name,
+            Category:req.body.Category,
+            Status:req.body.Status,
+            icon:req.body.Icon
+    
+            
+        });
+        newjobpost.save();
+
+product.find((result,err)=>{
+
+console.log(result);
+
+
+
+
+})
+
+});
+
+
+
+app.get("/product/show",(req,res)=>{
+
+
+    product.find((err,results)=>{
+
+        console.log(results);
+        
+        res.send(JSON.stringify(results));
+        
+        
+        });
+   
+
+});
+
+app.post("/product/Update",(req,res)=>{
+
+product.updateOne({"_id":req.body.id},{"Name":req.body.Name,"Category":req.body.Category,"Status":req.body.Status,"Icon":req.body.Icon},function(result,response){
+
+    console.log(response);
+    console.log(result);
+
+});
+res.send("update succefully");
+
+})
+
+
+app.post("/product/delete",(req,res)=>{
+
+product.deleteOne({"_id":req.body.id},function(response,result){
+
+console.log(result);
+
+})
+
+res.send("deleted Successfully");
+
+});
+
+
+
+app.post("/banner/create",(req,res)=>{
+
+
+    const newjobpost=new banner(
+        {
+            
+          Image:req.body.Image,
+          Status:req.body.Status
+    
+            
+        });
+        newjobpost.save();
+
+banner.find((result,err)=>{
+
+console.log(result);
+
+res.send("created Succesfully");
+
+
+})
+
+});
+
+
+
+app.get("/banner/show",(req,res)=>{
+
+
+    banner.find((err,results)=>{
+
+        console.log(results);
+        
+        res.send(JSON.stringify(results));
+        
+        
+        });
+   
+
+});
+
+app.post("/banner/Update",(req,res)=>{
+
+banner.updateOne({"_id":req.body.id},{"Image":req.body.Image,"Status":req.body.Status},function(result,response){
+
+    console.log(response);
+    console.log(result);
+
+});
+res.send("update succefully");
+
+})
+
+
+app.post("/banner/delete",(req,res)=>{
+
+banner.deleteOne({"_id":req.body.id},function(response,result){
+
+console.log(result);
+
+})
+
+res.send("deleted Successfully");
+
+});
+
+
+
+
+// offer api
+app.get("/offer/show",(req,res)=>{
+
+
+    offer.find((err,results)=>{
+
+        console.log(results);
+        
+        res.send(JSON.stringify(results));
+        
+        
+        });
+   
+
+});
+
+app.post("/offer/Update",(req,res)=>{
+
+    offer.updateOne({"_id":req.body.id},{"Image":req.body.Image,"Content":req.body.Content},function(result,response){
+    
+        console.log(response);
+        console.log(result);
+    
+    });
+    res.send("update succefully");
+    
+    })
+app.post("/offer/create",(req,res)=>{
+
+
+        const newjobpost=new offer(
+            {
+                
+              
+Image:req.body.Image,
+Content:req.body.Content,
+Offer:req.body.Offer
+
+        
+                
+            });
+            newjobpost.save();
+    
+    offer.find((result,err)=>{
+    
+    console.log(result);
+    
+    res.send("created Succesfully");
+    
+    
+    })
+    
+    });
+    
+//Trending offer
+
+app.get("/TrendingOffer/show",(req,res)=>{
+
+
+    TrendingOffer.find((err,results)=>{
+
+        console.log(results);
+        
+        res.send(JSON.stringify(results));
+        
+        
+        });
+   
+
+});
+
+app.post("/TrendingOffer/Update",(req,res)=>{
+
+    TrendingOffer.updateOne({"_id":req.body.id},{"Image":req.body.Image,"Content":req.body.Content},function(result,response){
+    
+        console.log(response);
+        console.log(result);
+    
+    });
+    res.send("update succefully");
+    
+    })
+app.post("/TrendingOffer/create",(req,res)=>{
+
+
+        const newjobpost=new TrendingOffer(
+            {
+                
+              
+Image:req.body.Image,
+Content:req.body.Content,
+
+        
+                
+            });
+            newjobpost.save();
+    
+            TrendingOffer.find((result,err)=>{
+    
+    console.log(result);
+    
+    res.send("created Succesfully");
+    
+    
+    })
+    
+    });
+
+app.post("/otp/verify",(req,res)=>{
+
+if(req.body.otp==1120){
+
+res.send("verified Scuccefully");
+
+}
+else{
+
+    res.send("Try Again")
+}
+
+
+
+});
 

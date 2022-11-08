@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #4CAF50;
+  background-image:linear-gradient(to left,#6db9ef,#7ce08a);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -42,11 +43,12 @@ button:hover {
   text-align: center;
   margin: 24px 0 12px 0;
   position: relative;
+
 }
 
 img.avatar {
   width: 40%;
-  border-radius: 50%;
+ 
 }
 
 .container {
@@ -60,7 +62,7 @@ span.psw {
 
 /* The Modal (background) */
 .modal {
-  /* Hidden by default */
+ /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -68,17 +70,16 @@ span.psw {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-image:linear-gradient(to right,#6db9ef,#7ce08a);
   padding-top: 60px;
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color:snow;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 60%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
@@ -114,13 +115,23 @@ span.psw {
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
+@media only screen and (max-width: 600px) {
+ 
   span.psw {
      display: block;
      float: none;
   }
   .cancelbtn {
      width: 100%;
+  }
+.modal-content {
+  background-color:snow;
+  margin: 5% 5% ; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 90%; /* Could be more or less, depending on screen size */
+}
+      body {
+    background-color: lightblue;
   }
 }
 </style>
@@ -131,41 +142,34 @@ span.psw {
 
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="/update" method="post">
+  <form class="modal-content animate" action="/forpas" method="post">
     <div class="imgcontainer">
       
-     <h1>O T P</h1>
-    </div>
-
-    <div class="container">
-    <label for="email">Enter your Email</label>
-    <input type="text" placeholder="Enter Email" name="email"required>
-      <label for="psw"><b>New password </b></label>
-      <input type="password" placeholder="Enter New password" name="pass" required>
         
-      <button type="submit"></button>
-      
+         <script>
+    function pageRedirect() {
+      window.location.href = "/";
+    }      
+</script>
+       <span  onclick="pageRedirect()" class="close" title="Close Modal">&times;</span>
+      <img src="https://drive.google.com/uc?id=1oVYDzQRi_4o51x8SKh60aJ3G7fME_Ig-" alt="Avatar" class="avatar">
     </div>
+ 
+    <div class="container">
+        
+      <label for="email"><b>Enter Your Registerd Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required style="border-color" >
 
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="myFunction()" class="cancelbtn">Cancel</button>
-        <form action="/otpsend" method="post">
-        <button class="cancelbtn">Resend-otp</button>
-        </form>
-     
+    
+      <button type="submit">Setup New Password</button>
+    
     </div>
+<div class="container" style="background-color:#f1f1f1"> </div>
   </form>
 </div>
 
-<script>
+    
 
-
-// When the user clicks anywhere outside of the modal, close it
-function myFunction() {
-  location.replace("/postjob")
-}
-
-</script>
-
+<!---->
 </body>
 </html>
