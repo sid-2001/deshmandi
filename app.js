@@ -101,6 +101,15 @@ Content:String
 
 })
 
+const categoryschema=new mong.Schema({
+    Image:String,
+Content:String
+
+
+
+})
+const Category=mong.model("category",categoryschema);
+
 
 const TrendingOffer=mong.model("TrendingOffer",Trendingschema);
 
@@ -774,6 +783,7 @@ app.post("/TrendingOffer/Update",(req,res)=>{
     res.send("update succefully");
     
     })
+
 app.post("/TrendingOffer/create",(req,res)=>{
 
 
@@ -816,3 +826,60 @@ else{
 
 });
 
+
+app.get("/category/show",(req,res)=>{
+
+    Category.find((err,results)=>{
+
+        console.log(results);
+        
+        res.send(JSON.stringify(results));
+        
+        
+        });
+   
+
+
+});
+
+app.post("/category/create",(req,res)=>{
+
+
+    const newjobpost=new Category(
+        {
+            
+          
+Image:req.body.Image,
+Content:req.body.Content,
+
+    
+            
+        });
+
+        newjobpost.save();
+
+        Category.find((result,err)=>{
+
+console.log(result);
+
+res.send("created Succesfully");
+
+
+
+})
+
+});
+
+app.post("/category/update",(req,res)=>{
+
+Category.updateOne({"_id":req.body.id},{"Image":req.body.Image,"Content":req.body.Content},function(result,response){
+    
+        console.log(response);
+        console.log(result);
+    
+    });
+    res.send("updated succefully");
+
+    
+
+})
